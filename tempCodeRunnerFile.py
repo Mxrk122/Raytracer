@@ -1,0 +1,1 @@
+r.addSphere(V3(0, -1.5, -10), 1.5, ivory)
