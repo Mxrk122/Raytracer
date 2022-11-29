@@ -3,7 +3,7 @@ from vector3 import V3
 from material import *
 import color
 
-filename = "base"
+filename = "result"
 r = ray.Raytracer(filename, 600, 600)
 r.change_clear_color(0.2, 0.8, 1)
 
@@ -22,14 +22,11 @@ glass = Material(diffuse=(150/255, 180/255, 200/255), albedo = [0, 0.5, 0.1, 0.8
 water = Material((0.8, 0.8, 1), [0, 0.5, 0.1, 0.8], 10, 1.5)
 white_block = Material(diffuse=(1, 1, 0.8), albedo = [0.6, 0.3, 0, 0], spec = 50)
 orange_block = Material(diffuse=(1, 0.4, 0.1), albedo = [0.6, 0.3, 0, 0], spec = 50)
-black_block = Material(diffuse=(0, 0, 0.4), albedo = [0.6, 0.3, 0, 0], spec = 50)
+golden_block = Material(diffuse=(1, 1, 1), albedo = [0, 0, 0, 0], spec = 10)
 grass = black_block = Material(diffuse=(0.8, 1, 0.4), albedo = [0.6, 0.3, 0, 0], spec = 50)
 
-#r.setBackground('./hola.bmp')
 # change the light
 r.set_light(V3(0, -5, -5), 20, (0, 0, 0))
-
-
 
 #result
 r.addCube(V3(-2.5, 2, -3), 3.5, white_block)
