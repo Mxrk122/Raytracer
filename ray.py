@@ -28,7 +28,10 @@ class Raytracer(object):
     def setBackground(self, img_path):
         self.bg = envmap(img_path)
     
-    def drawBackground(self, direction):
+    def drawBackground(self, direction: V3):
+
+        direction = direction.normalize()
+
         if self.bg:
             return self.bg.get_color(direction)
         else:

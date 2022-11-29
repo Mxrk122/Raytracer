@@ -23,6 +23,7 @@ class envmap(object):
                 for line in range(self.width):
                     b, g, r = ord(envmap.read(1)), ord(envmap.read(1)), ord(envmap.read(1))
 
+
                     self.pixels[y].append((r, g, b)) 
 
 
@@ -30,12 +31,10 @@ class envmap(object):
         direction = direction.normalize()
 
         # controlar casos que se salen de la imagen
-        x = min((atan2(direction.z, direction.x) / (2 * pi) + 0.5)*2, 1)
-        y = min((acos(-direction.y) / pi)*2, 1)
-        x = max(min(x, 1), 0)
-        y = max(min(y, 1), 0)
+        x = round(((atan2(direction.z, direction.x) / (2 * pi)) + 0.5) * self.width)
+        x -= 1 if (x > 0) else 0
 
-        x = int(x * self.width - 1)
-        y = int(y * self.height - 1)
+        y = (-1 * round((acos((-1 * direction.y)) / pi) * self.height))
+        y -= 1 if (y > 0) else 0
 
         return self.pixels[y][x]
